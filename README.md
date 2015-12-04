@@ -1,16 +1,21 @@
 
 
-setup
+#### setup
 
-	$ git clone git://github.com/automata/osc-web.git
+1) install [node](https://nodejs.org/)
+
+2)
+
+	$ git https://github.com/genekogan/p5js-osc
 	$ cd osc-web/
 	$ npm install
 	
 	
-examples
+examples todo
 
- - basic (from Processing)
+ - basic (done)
  - in: kinect
  - in: leap-motion
- - in: face osc
- - out: ableton
+ - in: faceosc
+ - in: midi device?
+ - out: ableton?

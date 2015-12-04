@@ -1,4 +1,6 @@
+### osc in p5.js
 
+adapted from [osc-web](https://github.com/automata/osc-web).
 
 #### setup
 

@@ -1,21 +1,24 @@
 var x;
+var y;
 
 function setup() {
-  	createCanvas(500, 400);
+  createCanvas(1400, 900);
 	setupOsc();
  	x = 50;
+ 	y = 50;
 }
 
 function draw() {
   	background(0);
   	stroke(0); 
-	fill(255);
-	rect(x,50,75,75);
+	  fill(255);
+	  rect(x,y,75,75);
 }
 
 function receiveOsc(address, value) {
-	if (address == "/rate") {
-		x = value;
+	if (address == "/test") {
+		x = value[0];
+		y = value[1];
 	}
 }
 
@@ -28,8 +31,12 @@ function setupOsc() {
 		});
 	});
 	socket.on('message', function(msg) {
-		var address = msg[2][0];
-		var value = msg[2][1];
+	  	var address = msg[0];
+	  	var value = [];
+	  	value.push(msg[1]);
+	  	value.push(msg[2]);	
+		//console.log(address);
+		//console.log(value);
 		receiveOsc(address, value);
 	});
 }

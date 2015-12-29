@@ -1,6 +1,6 @@
 function setup() {
 	createCanvas(100, 100);
-	setupOsc(3333, 3334);
+	setupOsc(8000, 3334);
 }
 
 function draw() {

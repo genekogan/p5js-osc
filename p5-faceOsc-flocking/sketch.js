@@ -23,18 +23,18 @@ function draw() {
   	background(51);
   	flock.run();
   
-	// LEFT_EYE : 0 - 5
-	// RIGHT_EYE : 6 - 11
-	// LEFT_EYEBROW : 12 - 16
-	// RIGHT_EYEBROW : 17 - 21
-	// NOSE_BRIDGE : 22 - 25
-	// NOSE_BASE : 26 - 30
-	// INNER_MOUTH : 31 - 38
-	// OUTER_MOUTH : 39 - 50
-	// JAW : 51 - 67
+	// FACE_OUTLINE : 0 - 16
+	// LEFT_EYEBROW : 17 - 21
+	// RIGHT_EYEBROW : 22 - 26
+	// NOSE_BRIDGE : 27 - 30
+	// NOSE_BOTTOM : 31 - 35
+	// LEFT_EYE : 36 - 41
+	// RIGHT_EYE : 42 - 47
+	// INNER_MOUTH : 48 - 59
+	// OUTER_MOUTH : 60 - 65
 
 	if (face.length > 0) {
-		var faceParts = [[0,5], [6,11], [12,16], [17,21], [22,25], [26,30], [31,38], [39,50]];
+		var faceParts = [[0,16], [17,21], [22,26], [27,30], [31,35], [36,41], [42,47], [48,59], [60,65]];
 		noFill();
 		stroke(255, 100, 100);
 		for (var i = 0; i < faceParts.length; i++) {
@@ -42,7 +42,7 @@ function draw() {
 			for (var j = faceParts[i][0]; j <= faceParts[i][1]; j++) {
 				vertex(face[j].x, face[j].y);
 			}
-			endShape(CLOSE);
+			endShape();
 		}	
 	}
 	
@@ -50,15 +50,15 @@ function draw() {
 		text(mouthWidth * mouthHeight, 20, 20);
 	}
 	
-	if (mouthWidth * mouthHeight > 50 && frameCount % 3 == 0) {		
+	if (mouthWidth * mouthHeight > 50 && frameCount % 3 == 0 & face.length > 0) {		
 		// get center of the mouth
 		var center = [0, 0]
-		for (var i=31; i<39; i++) {
+		for (var i=60; i<66; i++) {
 			center[0] += face[i].x;
 			center[1] += face[i].y;
 		}
-		center[0] /= 8.0;
-		center[1] /= 8.0;
+		center[0] /= 6.0;
+		center[1] /= 6.0;
 		
 		// add boid where mouth center appears
 		var b = new Boid(center[0], center[1]);
@@ -266,7 +266,7 @@ Boid.prototype.cohesion = function(boids) {
 }
 
 function receiveOsc(address, value) {
-	if (address == '/facePoints') {
+	if (address == '/raw') {
 		face = [];
 		for (var i=0; i<value.length; i+=2) {
 			face.push({x:value[i], y:value[i+1]});

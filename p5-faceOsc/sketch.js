@@ -19,16 +19,32 @@ function setup() {
 function draw() {
   	background(0);
 
-	// draw the face
-  	stroke(0); 
-	fill(255);
-	for (var i=0; i<face.length; i++) {
-		ellipse(face[i].x, face[i].y, 5, 5);
+	// FACE_OUTLINE : 0 - 16
+	// LEFT_EYEBROW : 17 - 21
+	// RIGHT_EYEBROW : 22 - 26
+	// NOSE_BRIDGE : 27 - 30
+	// NOSE_BOTTOM : 31 - 35
+	// LEFT_EYE : 36 - 41
+	// RIGHT_EYE : 42 - 47
+	// INNER_MOUTH : 48 - 59
+	// OUTER_MOUTH : 60 - 65
+
+	if (face.length > 0) {
+		var faceParts = [[0,16], [17,21], [22,26], [27,30], [31,35], [36,41], [42,47], [48,59], [60,65]];
+		noFill();
+		stroke(255);
+		for (var i = 0; i < faceParts.length; i++) {
+			beginShape();
+			for (var j = faceParts[i][0]; j <= faceParts[i][1]; j++) {
+				vertex(face[j].x, face[j].y);
+			}
+			endShape();
+		}	
 	}
 }
 
 function receiveOsc(address, value) {
-	if (address == '/facePoints') {
+	if (address == '/raw') {
 		face = [];
 		for (var i=0; i<value.length; i+=2) {
 			face.push({x:value[i], y:value[i+1]});

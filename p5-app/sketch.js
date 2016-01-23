@@ -1,14 +1,23 @@
+var x, y;
+
 function setup() {
-	createCanvas(100, 100);
+	createCanvas(500, 500);
 	setupOsc(3333, 3334);
 }
 
 function draw() {
-
+	background(255, 0, 0);
+	fill(0, 255, 0);
+	ellipse(x, y, 50, 50);
 }
 
 function receiveOsc(address, value) {
 	console.log("received OSC: " + address + ", " + value);
+	
+	if (address == '/test') {
+		x = value[0];
+		y = value[1];
+	}
 }
 
 function sendOsc(address, value) {

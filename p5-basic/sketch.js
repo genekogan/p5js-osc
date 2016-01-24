@@ -2,13 +2,15 @@ var x, y;
 
 function setup() {
 	createCanvas(500, 500);
-	setupOsc(3333, 3334);
+	setupOsc(12000, 3334);
 }
 
 function draw() {
-	background(255, 0, 0);
+	background(0, 0, 255);
 	fill(0, 255, 0);
-	ellipse(x, y, 50, 50);
+	ellipse(x, y, 100, 100);
+	fill(0);
+	text("I'm p5.js", x-25, y);
 }
 
 function receiveOsc(address, value) {
@@ -24,7 +26,6 @@ function sendOsc(address, value) {
 	socket.emit('message', [address].concat(value));
 }
 
-var socket;
 function setupOsc(oscPortIn, oscPortOut) {
 	var socket = io.connect('http://127.0.0.1', { port: 8081, rememberTransport: false });
 	socket.on('connect', function() {
@@ -42,4 +43,3 @@ function setupOsc(oscPortIn, oscPortOut) {
 			receiveOsc(msg[0], msg.splice(1));
 		}
 	});
-}

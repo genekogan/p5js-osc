@@ -20,7 +20,10 @@ then open index.html from a sketch in a browser, which connects to bridge.
 
 4) send OSC to p5 via port 3333. send OSC from p5 via port 3334
 
-	
+
+### Applications
+
+Thanks [Tega Brain](https://github.com/tegacodes) for extended [notes on the included applications](https://github.com/genekogan/p5js-osc/blob/master/Applications.md).
 
 	
 examples todo

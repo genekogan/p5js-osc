@@ -10,7 +10,7 @@ function sendOsc(address, value) {
   }
 
 function setupOsc(oscPortIn, oscPortOut) {
-	socket = io.connect('http://127.0.0.1', { port: 8085, forceNew: true, rememberTransport: false });
+	socket = io.connect('http://127.0.0.1', { port: 8081, forceNew: true, rememberTransport: false });
 	socket.on('connect', function() {
 		socket.emit('config', {	
 			server: { port: oscPortIn,  host: '127.0.0.1'},

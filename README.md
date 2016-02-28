@@ -4,33 +4,33 @@ adapted from [osc-web](https://github.com/automata/osc-web).
 
 #### setup
 
-1) install [node](https://nodejs.org/)
+Install [node](https://nodejs.org/)
 
-2)
+Clone this repo and run npm to get required libraries.
 
 	$ git https://github.com/genekogan/p5js-osc
 	$ cd p5js-osc/
 	$ npm install
 	
-3) 
+Start node.
 
     $ node bridge.js
 	
-then open index.html from a sketch in a browser, which connects to bridge.
+Then run any of the sketches in a browser or from the editor. Can also be run locally (i.e. just open index.html). 
 
-4) send OSC to p5 via port 3333. send OSC from p5 via port 3334
-
+Inside each sketch, when you run `setupOSC` you give it the input and output ports (default 3333, 3334).
 
 ### Applications
 
 Thanks [Tega Brain](https://github.com/tegacodes) for extended [notes on the included applications](https://github.com/genekogan/p5js-osc/blob/master/Applications.md).
 
-	
-examples todo
+There is a [demo video](https://vimeo.com/157024760) of the included examples.
 
- - basic (done)
- - in: kinect
- - in: leap-motion
- - in: faceosc
- - in: midi device?
- - out: ableton?
+Examples:
+ - Processing (needs [oscP5](www.sojamo.de/oscP5))
+ - Ableton Live (needs [LiveOSC](livecontrol.q3f.org/ableton-liveapi/liveosc/) and [KinectOSC](https://github.com/genekogan/KinectOSC/releases))
+ - FaceTracker (needs [FaseOSC](https://github.com/kylemcdonald/ofxFaceTracker/releases))
+ - Kinect (needs [KinectOSC](https://github.com/genekogan/KinectOSC/releases))
+
+Low-hanging fruits.
+ - [TouchOSC](http://hexler.net/software/touchosc) to control p5 from a phone/tablet

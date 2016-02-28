@@ -43,3 +43,4 @@ function setupOsc(oscPortIn, oscPortOut) {
 			receiveOsc(msg[0], msg.splice(1));
 		}
 	});
+}

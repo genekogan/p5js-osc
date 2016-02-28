@@ -52,7 +52,7 @@ function draw() {
 	var v8 = balls[3].position.y / height;
 	
 	// in my example, i'm mapping v1 to global tempo, so going to remap it to something more reasonable (so it doesn't go 1000bpm)
-	v1 = map(v1, 0, 1, 0.06, 0.2);
+	v1 = map(v2, 0, 1, 0.06, 0.2);
 	
 	// send these over OSC to AbletonOSC after you've selected 8 parameters to modify
 	if (isConnected) {

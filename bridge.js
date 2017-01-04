@@ -1,11 +1,13 @@
-var osc = require('node-osc'),
-    io = require('socket.io').listen(8081);
+var osc = require('node-osc');
+var io = require('socket.io')(8081);
+
 
 var oscServer, oscClient;
 
 var isConnected = false;
 
 io.sockets.on('connection', function (socket) {
+	console.log('connection');
 	socket.on("config", function (obj) {
 		isConnected = true;
     	oscServer = new osc.Server(obj.server.port, obj.server.host);

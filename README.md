@@ -8,7 +8,7 @@ Install [node](https://nodejs.org/)
 
 Clone this repo and run npm to get required libraries.
 
-	$ git https://github.com/genekogan/p5js-osc
+	$ git clone https://github.com/genekogan/p5js-osc
 	$ cd p5js-osc/
 	$ npm install
 	

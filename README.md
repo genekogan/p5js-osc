@@ -34,3 +34,7 @@ Examples:
 
 Low-hanging fruits.
  - [TouchOSC](http://hexler.net/software/touchosc) to control p5 from a phone/tablet
+
+### p5.js - arduino bridge
+
+[@lorenzoromagnoli](https://github.com/lorenzoromagnoli) made this into a [standalone application](https://github.com/lorenzoromagnoli/p5js-osc) using [electron](https://electron.atom.io/) which bridges p5.js to arduino over OSC.

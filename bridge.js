@@ -1,5 +1,5 @@
 var osc = require('node-osc');
-var io = require('socket.io')(8081);
+var io = require('socket.io')(8082);
 
 
 var oscServer, oscClient;
@@ -23,8 +23,8 @@ io.sockets.on('connection', function (socket) {
   	});
 	socket.on('disconnect', function(){
 		if (isConnected) {
-			oscServer.kill();
-			oscClient.kill();
+			oscServer.close();
+			oscClient.close();
 		}
   	});
 });

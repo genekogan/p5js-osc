@@ -1,3 +1,10 @@
+/*
+This sketch will move a ball on our p5 canvas and
+send an OSC message each time the ball hits a wall.
+- Billy Bennett, ITP NYU, May 2021
+*/
+
+
 // we need a handle to the socket to send our osc values
 var socket;
 var isConnected;
@@ -29,12 +36,12 @@ function draw() {
 
 	// check if the ball hits a wall and send a message if so
 	if (x > width || x < 0) {
-
+		// reverse the direction
 		xSpeed *= -1
 		sendOsc('message', 1);
 
 	} else if (y > height || y < 0) {
-
+		// reverse the direction
 		ySpeed *= -1
 		sendOsc('message', 1);
 

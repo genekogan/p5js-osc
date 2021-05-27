@@ -9,32 +9,35 @@ function setup() {
 	createCanvas(800, 600);
 	setupOsc(8000, 12000);
 
-	x = random(width)
-	y = random(height)
+	x = random(width);
+	y = random(height);
 
-	xSpeed = 5
-	ySpeed = 6
+	xSpeed = 5;
+	ySpeed = 6;
 
 }
 
 function draw() {
 	background(0);
 
-	// ball is a circle
-	ellipse(x, y, 100, 100)
+	// ball is an ellipse
+	ellipse(x, y, 100, 100);
 
-	x+=xSpeed
-	y+=ySpeed
+  // move the ball location
+	x+=xSpeed;
+	y+=ySpeed;
 
 	// check if the ball hits a wall and send a message if so
-	if(x > width || x < 0) {
+	if (x > width || x < 0) {
+
 		xSpeed *= -1
 		sendOsc('message', 1);
-	}
 
-	if(y > height || y < 0) {
+	} else if (y > height || y < 0) {
+
 		ySpeed *= -1
 		sendOsc('message', 1);
+
 	}
 
 }

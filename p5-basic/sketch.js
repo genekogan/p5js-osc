@@ -15,7 +15,7 @@ function draw() {
 
 function receiveOsc(address, value) {
 	console.log("received OSC: " + address + ", " + value);
-	
+
 	if (address == '/test') {
 		x = value[0];
 		y = value[1];
@@ -29,7 +29,7 @@ function sendOsc(address, value) {
 function setupOsc(oscPortIn, oscPortOut) {
 	var socket = io.connect('http://127.0.0.1:8081', { port: 8081, rememberTransport: false });
 	socket.on('connect', function() {
-		socket.emit('config', {	
+		socket.emit('config', {
 			server: { port: oscPortIn,  host: '127.0.0.1'},
 			client: { port: oscPortOut, host: '127.0.0.1'}
 		});

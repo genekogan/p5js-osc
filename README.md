@@ -11,12 +11,12 @@ Clone this repo and run npm to get required libraries.
 	$ git clone https://github.com/genekogan/p5js-osc
 	$ cd p5js-osc/
 	$ npm install
-	
+
 Start node.
 
     $ node bridge.js
-	
-Then run any of the sketches in a browser or from the editor. Can also be run locally (i.e. just open index.html). 
+
+Then run any of the sketches in a browser or from the editor. Can also be run locally (i.e. just open index.html).
 
 Inside each sketch, when you run `setupOSC` you give it the input and output ports (default 3333, 3334).
 
@@ -28,7 +28,7 @@ There is a [demo video](https://vimeo.com/157024760) of the included examples.
 
 Examples:
  - Processing (needs [oscP5](www.sojamo.de/oscP5))
- - Ableton Live (needs [LiveOSC](livecontrol.q3f.org/ableton-liveapi/liveosc/) and [KinectOSC](https://github.com/genekogan/KinectOSC/releases))
+ - Ableton Live (needs [M4L (Max For Live)](https://www.ableton.com/en/live/max-for-live/) and [KinectOSC](https://github.com/genekogan/KinectOSC/releases))
  - FaceTracker (needs [FaseOSC](https://github.com/kylemcdonald/ofxFaceTracker/releases))
  - Kinect (needs [KinectOSC](https://github.com/genekogan/KinectOSC/releases))
 

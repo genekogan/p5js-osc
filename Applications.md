@@ -27,8 +27,8 @@ If you then open any of the index.html pages in the folders of the repo. You may
 When you open index.html from a sketch in a browser, it connects to bridge.js.  
 
 Note: if you try to reload the index.html page in the browser. You'll notice you get an error and node will stop running. When you start node, the server communicates with your application over a particular port. It only allows one application to connect over a single port and it won't let anything else connect to it. So when you reload, you are not actually closing the connection, and node thinks you are another application trying to connect and will crash. So for now, you have to restart node everytime you refresh your browser (do this in the terminal where you are running bridge CRL-c to quit and then relaunch using as before:  
-	
-	$node bridge.js 
+
+	$node bridge.js
 
 4) send OSC to p5 via port 3333. send OSC from p5 via port 3334  
 
@@ -78,8 +78,8 @@ Note: if you try to reload the index.html page in the browser. You'll notice you
 - Careful, this still has some bugs.  
 
 ####Example using Ableton
-- To get this working you need to download [Live OSC here](http://livecontrol.q3f.org/ableton-liveapi/liveosc/). This is because Ableton doesn't support OSC, so this app converts our OSC to midi so that ableton can receive data from our p5 app. There is a bit of a weird installation process where you have to go into the preferences in ableton and enable it so follow [the installation instructions](http://livecontrol.q3f.org/ableton-liveapi/liveosc/#Installation) carefully.
-- The example in this repo will change the tempo according to the mouse.
+- To get this working you need to download and install [Max for Live (M4L)](https://www.ableton.com/en/live/max-for-live/). M4L is a somewhat truncated version of MaxMSP.  Ableton doesn't support OSC directly, but it does support M4L devices which can convert our OSC to midi so that ableton can receive data from our p5 app.
+- The example in this repo will play a note each time our ball in p5 hits a wall.
 - So you can create a p5 app and control ableton from it.
 
-*These are very rough notes from the p5 OSC workshop held at ITP in January 2016*
+*These are very rough notes from the p5 OSC workshop held at ITP in January 2016.  Ableton example updated May 2021 by Billy Bennett*

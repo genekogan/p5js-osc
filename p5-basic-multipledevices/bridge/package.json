@@ -1,0 +1,50 @@
+{
+  "name": "p5js-osc",
+  "description": "OSC (Open Sound Control) Web Bridge for p5.js, adapted from https://github.com/automata/osc-web",
+  "version": "0.1.0",
+  "author": {
+    "name": "Gene Kogan",
+    "email": "kogan.gene@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Vilson Vieira",
+      "email": "vilson@void.cc"
+    },
+    {
+      "name": "Hans Hübner",
+      "email": "hans.huebner@gmail.com"
+    },
+    {
+      "name": "Andy Smith",
+      "email": "jabber@term.ie"
+    },
+    {
+      "name": "Myles Borins",
+      "email": "myles.borins@gmail.com"
+    },
+    {
+      "name": "Hideyuki Saito",
+      "email": "hideyuki@uniba.jp"
+    },
+    {
+      "name": "Takuro Yoshida",
+      "email": "american423@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "http": "0.0.0",
+    "node-osc": "^2.0.0",
+    "socket.io": "1.4.5"
+  },
+  "keywords": [
+    "osc",
+    "socket",
+    "websockets",
+    "p5.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/genekogan/p5js-osc.git"
+  }
+}

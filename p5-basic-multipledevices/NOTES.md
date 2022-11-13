@@ -15,6 +15,9 @@ How I imagine it should "work":
 
 I have no clear understanding on connecting OSC_SENDER_IP, BRIDGE_HOST_IP, OSC_RECEIVER_IP within the same network.
 
+### test
+Running a p5 sketch (app,  in one computer) to receive messages from a processing sketch (in another computer) and by running a bridge server with node (in the same computer that is receiving).
+
 ### steps
 0. **/bridge**: Run `node bridge.js`  will run on port 8081. 
 

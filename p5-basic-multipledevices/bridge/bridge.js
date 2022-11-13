@@ -1,29 +1,30 @@
 var osc = require('node-osc');
 var io = require('socket.io')(8081);
 
-var oscServer, oscClient;
 
-var isConnected = false;
+var oscServer;
+var port = 6969
+var sockets = new Map()
+
+oscServer = new osc.Server(port, "localhost");
+oscServer.on('message', function(msg) {
+	console.log("message " + msg)
+	console.log(sockets)
+	sockets.forEach((v, k) => {
+		console.log("emitting " + msg + " to " + k)
+		v.emit("message", msg)
+	});
+});
+
 
 io.sockets.on('connection', function (socket) {
-	console.log('connection');
-	socket.on("config", function (obj) {
-		isConnected = true;
-    	oscServer = new osc.Server(obj.server.port, obj.server.host);
-	    oscClient = new osc.Client(obj.client.host, obj.client.port);
-	    oscClient.send('/status', socket.sessionId + ' connected');
-		oscServer.on('message', function(msg, rinfo) {
-			socket.emit("message", msg);
-		});
-		socket.emit("connected", 1);
-	});
+	sockets.set(socket.id, socket)
+	console.log(socket.id + " connected, say hello")
+	socket.emit("connected", 1);
  	socket.on("message", function (obj) {
-		oscClient.send.apply(oscClient, obj);
+		console.log("message " + obj)
   	});
-	socket.on('disconnect', function(){
-		if (isConnected) {
-			oscServer.kill();
-			oscClient.kill();
-		}
+	socket.on('disconnect', function(socket){
+		sockets.delete(socket.id)
   	});
 });

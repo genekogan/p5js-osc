@@ -13,7 +13,7 @@ NetAddress myRemoteLocation;
 void setup() {
   size(500, 500);
   oscP5 = new OscP5(this, 8000);
-  myRemoteLocation = new NetAddress({ OSC_SENDER_IP}, { OSC_PORT_IN });
+  myRemoteLocation = new NetAddress("localhost", 6969);
 }
 
 

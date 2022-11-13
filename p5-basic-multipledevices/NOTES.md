@@ -9,11 +9,11 @@ How I imagine it should "work":
     forward from processing to { OSC_SENDER_IP }:8000
     { OSC_SENDER_IP }:{ 8000 } -> { OSC_SENDER_IP }:{ OSC_PORT_OUT }
     { BRIDGE_IP }:{ OSC_PORT_OUT } -> { BRIDGE_IP }:{ OSC_PORT_IN }
-    { BRIDGE_IP }:{ OSC_PORT_IN } ->  { OSCE_RECEIVER_IP }:{ OSC_PORT_IN }
-    forward OSCE_RECEIVER_IP <- LOCALHOST 
+    { BRIDGE_IP }:{ OSC_PORT_IN } ->  { OSC_RECEIVER_IP }:{ OSC_PORT_IN }
+    forward OSC_RECEIVER_IP <- LOCALHOST 
      { LOCALHOST }:8080 -> app
 
-I have no clear understanding on connecting OSC_SENDER_IP, BRIDGE_HOST_IP, OSCE_RECEIVER_IP within the same network.
+I have no clear understanding on connecting OSC_SENDER_IP, BRIDGE_HOST_IP, OSC_RECEIVER_IP within the same network.
 
 ### steps
 0. **/bridge**: Run `node bridge.js`  will run on port 8081. 
@@ -30,8 +30,8 @@ I have no clear understanding on connecting OSC_SENDER_IP, BRIDGE_HOST_IP, OSCE_
 
         { forward BRIDGE_IP<-> ngrok }
 
-        { BRIDGE_IP }:{ OSC_PORT_IN } ->  { OSCE_RECEIVER_IP }:{ OSC_PORT_IN }
-        forward OSCE_RECEIVER_IP <- LOCALHOST 
+        { BRIDGE_IP }:{ OSC_PORT_IN } ->  { OSC_RECEIVER_IP }:{ OSC_PORT_IN }
+        forward OSC_RECEIVER_IP <- LOCALHOST 
         { LOCALHOST }:8080 -> app
  
 
